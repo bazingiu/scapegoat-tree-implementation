@@ -5,35 +5,39 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📌 Project Overview
-Implementazione di uno **Scapegoat Tree** (Albero Capro Espiatorio), una struttura dati di ricerca binaria auto-bilanciante. A differenza di altri alberi come i Red-Black o gli AVL, lo Scapegoat Tree non richiede di memorizzare informazioni extra (come colori o altezze) in ogni nodo, rendendolo estremamente efficiente in termini di memoria.
+An implementation of a **Scapegoat Tree**, a self-balancing binary search tree. Unlike other balanced trees such as Red-Black or AVL trees, the Scapegoat Tree does not require storing extra information (like colors or heights) in every node, making it exceptionally memory-efficient.
 
-Il progetto è stato realizzato per il corso di **Algoritmi** (A.A. 2020/2021) presso l'Università di Catania.
+This project was developed for the **Algorithms** course (A.Y. 2020/2021) at the University of Catania.
 
 ### 🔬 Key Features
-* **Self-Balancing Logic**: Utilizza il concetto di "capro espiatorio" per ricostruire sottoalberi sbilanciati solo quando necessario.
-* **Performance**: Garantisce una complessità temporale ammortizzata di $O(\log n)$ per le operazioni di inserimento e cancellazione.
-* **Memory Efficient**: Struttura dei nodi minimale senza overhead aggiuntivo.
+* **Self-Balancing Logic**: Employs the "scapegoat" concept to rebuild unbalanced subtrees only when necessary.
+* **Performance**: Guarantees a worst-case amortized time complexity of $O(\log n)$ for insertion and deletion operations.
+* **Memory Efficient**: Minimal node structure without the overhead of balancing metadata.
 
 ---
 
 ## 📁 Repository Structure
-Il progetto è organizzato come segue:
+The project is organized as follows:
 
-* **`Scapegoat-Tree.cpp`**: Codice sorgente C++ completo dell'implementazione.
-* **`Scapelgoat tree documentation.pdf`**: Relazione tecnica dettagliata con analisi della complessità e test di performance.
-* **`Scapelgoat tree documentation.zip`**: File sorgente della documentazione (LaTeX/Assets).
+* **`Scapegoat-Tree.cpp`**: Complete C++ source code of the data structure.
+* **`Scapelgoat tree documentation.pdf`**: Detailed technical report including complexity analysis and performance testing.
+* **`Scapelgoat tree documentation.zip`**: Source files for the documentation (LaTeX/Assets).
 
 ---
 
 ## 📖 Theoretical Insights
-Uno Scapegoat Tree si basa su un parametro di bilanciamento $\alpha$ (tipicamente tra $0.5$ e $1$). Un nodo si definisce sbilanciato se:
+A Scapegoat Tree relies on a balancing parameter $\alpha$ (typically ranging from $0.5$ to $1$). A node is considered unbalanced if:
+
 $$\text{size}(\text{child}) > \alpha \cdot \text{size}(\text{node})$$
-Quando questa condizione viene violata durante un inserimento, l'algoritmo risale l'albero per trovare lo "scapegoat" (il primo antenato sbilanciato) e ricostruisce quel sottoalbero in modo perfettamente bilanciato.
+
+When this condition is violated during an insertion, the algorithm traverses up the tree to find the **"scapegoat"** (the first unbalanced ancestor) and rebuilds that specific subtree into a perfectly balanced state.
+
+
 
 ---
 
 ## 🛠️ How to Use
-Per compilare ed eseguire il progetto:
+To compile and run the project:
 
 ```bash
 g++ -O3 Scapegoat-Tree.cpp -o ScapegoatTree
